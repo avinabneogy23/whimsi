@@ -1,0 +1,2 @@
+# whimsi
+Ghibli affirmations app
