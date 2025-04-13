@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    /* Studio Ghibli-inspired background options */
+    --bg-totoro: url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    --bg-spirited: url('https://images.unsplash.com/photo-1477346611705-65d1883cee1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    --bg-kiki: url('https://images.unsplash.com/photo-1560008581-09826b1de69a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    --bg-howl: url('https://images.unsplash.com/photo-1580137189272-c9379f8864fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    --bg-ponyo: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    
+    background-image: var(--bg-totoro);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  :root {
+    --font-heading: 'Quicksand', sans-serif;
+    --font-body: 'Nunito', sans-serif;
+    --font-accent: 'Caveat', cursive;
+  }
+}
+
+@layer components {
+  .app-container {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .affirmation-card {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .affirmation-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(168, 237, 234, 0.1) 0%, rgba(254, 214, 227, 0.1) 100%);
+    pointer-events: none;
+  }
+
+  .toggle-checkbox:checked {
+    right: 0;
+    background-color: var(--primary);
+  }
+
+  .mood-dot {
+    transition: transform 0.2s;
+  }
+  
+  .mood-dot:hover {
+    transform: scale(1.15);
+  }
+}
+
+@layer utilities {
+  /* Sparkle animation */
+  @keyframes sparkle {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; }
+  }
+  
+  .sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+    animation-delay: calc(var(--delay) * 1s);
+  }
+
+  /* Float animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* Gentle floating motion for background particles */
+  @keyframes drift {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate(5px, 10px) rotate(5deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+  }
+  
+  /* Dust particle gentle movement */
+  @keyframes dust-float {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+      opacity: 0.6;
+    }
+    25% {
+      transform: translateY(-15px) translateX(10px);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translateY(-30px) translateX(0);
+      opacity: 1;
+    }
+    75% {
+      transform: translateY(-15px) translateX(-10px);
+      opacity: 0.8;
+    }
+  }
+  
+  /* Soot sprite animation */
+  @keyframes soot-bounce {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-20px) scale(0.8);
+    }
+  }
+  
+  /* Boomerang animation for Ghibli background */
+  @keyframes boomerang {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  /* Boomerang animation for playback */
+  @keyframes reverse-play {
+    0% { background-position: 0% 0%; }
+    25% { background-position: 100% 0%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+    100% { background-position: 0% 0%; }
+  }
+  
+  .animation-boomerang {
+    animation: boomerang 8s linear infinite;
+  }
+  
+  .animation-reverse-play {
+    animation: reverse-play 15s linear infinite;
+  }
+  
+  .soot-sprite {
+    animation: soot-bounce 4s ease-in-out infinite;
+  }
+  
+  .dust-particle {
+    animation: dust-float 8s ease-in-out infinite;
+  }
+  
+  .drift {
+    animation: drift 8s ease-in-out infinite;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(136, 201, 161, 0.6);
+  border-radius: 10px;
+}
+
+/* Font classes */
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+}

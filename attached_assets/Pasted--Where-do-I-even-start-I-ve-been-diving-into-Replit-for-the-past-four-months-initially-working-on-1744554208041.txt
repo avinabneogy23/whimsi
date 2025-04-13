@@ -1,0 +1,27 @@
+
+
+Where do I even start? I’ve been diving into Replit for the past four months, initially working on a JavaScript logic game for a friend. But as you can imagine, that project is still on the back burner as I got sidetracked by the amazing possibilities to test out all these ideas I've had for years.
+
+With the introduction of the agent, I’ve shifted to primarily using GPT/Claude for coding, relying on bash scripts in the Replit shell—honestly, I think it’s the best workflow! I’m currently at a point where I use the agent for 50% of a given project.
+
+I’ve seen a lot of complaints about the agent, but I believe it just needs some more refinement before it can fully tackle real development. If we keep feeding it input and providing corrections, I think it’ll improve its underlying logic.
+
+A bit of advice for those starting out:
+
+    Know Your Tech: Have a basic understanding of the tech stack you want to build before prompting. (if you don't know, ask ai for the best stack for your use-case)
+
+    Vague on What: Be vague about "what" your app or SaaS should do, but precise on "how" you want it to work.
+
+    Consider the Backend: Think about the backend architecture and how your frontend will communicate with it. Typically, you might use React, HTML, vanilla JS, or a mix.
+
+    Define Your Goals: Start by telling the AI what you want to achieve and ask for a few options based on resource requirements—light, medium, or comprehensive tech stacks.
+
+For instance, with my SaaSentric project, I instructed the agent to use JWT for login, lowDb, FastAPI (flask/py) for the backend, and HTML/CSS with Tailwind and vanilla JS for the frontend. I simply explained the desired user inputs and outputs, and the agent handled the rest. It took a few tweaks and about four attempts to get the login and registration right (definitely the agent's weak spot), but in about an hour, I had a fully functional product! Check it out at SaaSentric.replit.app.
+
+TL;DR:
+
+    Be vague about your product/app.
+
+    Be specific about your architecture and processes.
+
+P.S. If you haven’t tried the Streamlit template yet, you’re missing out! Your app ideas will work seamlessly, then you can port them.
